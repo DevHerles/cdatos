@@ -1,0 +1,1 @@
+git+ssh://git@git.minsa.gob.pe/oidt/mpi-client.git@develop#egg=mpi_client==1.3.1

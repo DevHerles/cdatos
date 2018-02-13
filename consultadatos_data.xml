@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+   <data noupdate="1">
+        <record id="consultadatos.modo_online" model="ir.config_parameter">
+            <field name="key">consultadatos.modo_online</field>
+            <field name="value">True</field>
+        </record>
+
+        <record id="consultadatos.mpi_api_host" model="ir.config_parameter">
+            <field name="key">mpi_api_host</field>
+            <field name="value">mpi_api_host</field>
+        </record>
+
+        <record id="consultadatos.mpi_api_token" model="ir.config_parameter">
+            <field name="key">mpi_api_token</field>
+            <field name="value">mpi_api_token</field>
+        </record>
+
+        <record id="consultadatos.mpi_minutos_sinactualizar" model="ir.config_parameter">
+            <field name="key">mpi_minutos_sinactualizar</field>
+            <field name="value">1</field>
+        </record>
+
+        <record id="ir_cron_eliminar_consultadatos_mpi" model="ir.cron">
+            <field name="name" >Eliminar Consultas MPI</field>
+            <field eval="True" name="active"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False" />
+            <field name="model" eval="'consultadatos.mpi'"></field>
+            <field name="function" eval="'_cron_delete'"/>
+            <field name="args" eval="'()'"/>
+        </record>
+    </data>
+</openerp>
